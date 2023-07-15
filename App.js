@@ -3,6 +3,8 @@ let movie = [];
 let obj = []
 let genre;
 
+mvName = "Spider"
+
 let mvContainer = document.querySelectorAll(".movie-container");
 
 
@@ -134,10 +136,14 @@ function displayModal(){
         mvContainer[i].addEventListener("click",()=>{
 
             const {title,poster_path,original_language,vote_average,overview} = obj[i];
+            localStorage.setItem("mvTitle",title)
 
             let posterUrl = `https://image.tmdb.org/t/p/original${poster_path}`
             let runtime = Math.floor(Math.random()*(200-150)+150)
             let lang = original_language.toUpperCase()
+            let duration = runtime*2
+
+            localStorage.setItem("mvPrice",runtime)
 
 
             let genreName;
@@ -166,7 +172,7 @@ function displayModal(){
                                                     <p class="mv-lang">${lang}</p>
                                                     <p><span>${runtime} minutes</span><i class="fa-solid fa-circle-small"></i> <span>${genreName}</span></p>
                                                     <p>${overview}</p>
-                                                    <p>&#8377; <span class="mv-price">${runtime*2}</span></p>
+                                                    <p>&#8377; <span class="mv-price">${duration}</span></p>
                                                     <button class="book-tickets-btn">Book Tickets</button>      
                                                 </div>
 
@@ -186,13 +192,8 @@ function displayModal(){
             bookTicketsBtn.addEventListener("click",(e)=>{
 
                 e.preventDefault();
-                window.location.href = `payment.html`
-
-                const backBtn = document.querySelector("#back-btn")
-                console.log(backBtn)
+                window.location.href = `payment.html` 
             })
-
-            
 
         })
     }
@@ -201,6 +202,7 @@ function displayModal(){
 function hideModal(){
     modalContainer.classList.add("hidden")
 }
+
 
 
 
