@@ -293,6 +293,10 @@
 
     #first-name ,#last-name ,#email{
         display: block;
-        min-width: 100%;
+        min-width: 90%;
+    }
+
+    #payment-card{
+        min-width: 90%;
     }
 }
