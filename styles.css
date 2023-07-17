@@ -41,7 +41,7 @@
 /* Genre Section */
 
 .genres-section{
-    width: 10%;
+    width: 150px;
     border: 1px solid #333;
 }
 
@@ -61,6 +61,8 @@
 /* Movie List Section */
 
 #movie-list-section{
+    display: flex;
+    flex-direction: column;
     width: 90%;
     border: 1px solid #333;
 }
@@ -72,13 +74,14 @@
 
 #card-section{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 10px 30px;
 }
 
 .movie-container{
     border: 1px solid #333;
-    width: 23%;
+    width: 300px;
     height: 350px;
     margin: 0 20px 20px 0;
 }
@@ -111,10 +114,6 @@
 
 /* Heading Section */
 
-#heading-section{
-    display: flex;
-    gap: 42%;
-}
 
 #back-btn{
     border: 2px solid black;
@@ -122,7 +121,10 @@
 }
 
 #checkout-title{
-    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;   
 }
 
 
@@ -139,7 +141,7 @@
     border: 1px solid #333;
     padding: 10px;
     height: 250px;
-    width: 30%;
+    width: 400px;
 }
 
 .sum-title{
@@ -231,7 +233,7 @@
 }
 
 .modal-card{
-    width: 40%;
+    width: 500px;
     height: 60vh;
     display: flex;
     background-color: white;
@@ -277,4 +279,20 @@
     font-weight: bold;
     font-size: 1.3rem;
     cursor: pointer;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 650px) {
+    #card-section{
+        flex-direction: column;
+    }
+
+    #sub-section{
+        flex-direction: column;
+    }
+
+    #first-name ,#last-name ,#email{
+        display: block;
+        min-width: 100%;
+    }
 }
