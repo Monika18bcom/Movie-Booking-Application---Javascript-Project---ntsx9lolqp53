@@ -3,7 +3,7 @@ let movie = [];
 let obj = []
 let genre;
 
-mvName = "Spider"
+// mvName = "Spider"
 
 let mvContainer = document.querySelectorAll(".movie-container");
 
@@ -136,6 +136,7 @@ function displayModal(){
         mvContainer[i].addEventListener("click",()=>{
 
             const {title,poster_path,original_language,vote_average,overview} = obj[i];
+            
             localStorage.setItem("mvTitle",title)
 
             let posterUrl = `https://image.tmdb.org/t/p/original${poster_path}`
