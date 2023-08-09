@@ -15,7 +15,7 @@ const mvCard = document.querySelector("#card-section")
 let pageNum = 1;
 
 function displayUi(movie){
-    // console.log(movie.length)
+   
     mvCard.innerHTML = "";
 
     if(movie.length > 0){
