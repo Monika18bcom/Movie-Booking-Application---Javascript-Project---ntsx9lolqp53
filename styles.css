@@ -58,6 +58,11 @@
     cursor: pointer;
 }
 
+.genre:active{
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.9);
+}
+
 /* Movie List Section */
 
 #movie-list-section{
@@ -74,7 +79,7 @@
 
 #card-section{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin: 10px 30px;
 }
@@ -95,13 +100,23 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin: 0 5px;
 }
 
 .info{
     display: flex;
     justify-content: space-between;
+    margin: 0 5px;
 }
 
+.empty-gendre{
+    width: 100%;
+    font-size: 25px;
+    color: red;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 30px;
+}
 
 /* Payment File Css */
 
@@ -282,6 +297,7 @@
 }
 
 /* Responsiveness */
+
 @media screen and (max-width: 650px) {
     #card-section{
         flex-direction: column;
