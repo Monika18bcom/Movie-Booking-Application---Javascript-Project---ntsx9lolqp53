@@ -10,29 +10,45 @@ let mvContainer = document.querySelectorAll(".movie-container");
 
 const mvCard = document.querySelector("#card-section")
 
+// const nowPlaying = document.querySelector("#now-playing")
+
 let pageNum = 1;
 
 function displayUi(movie){
+    // console.log(movie.length)
     mvCard.innerHTML = "";
 
-    movie.map((e)=>{
-        const {title,poster_path,original_language,vote_average} = e;
+    if(movie.length > 0){
+        movie.map((e)=>{
+            const {title,poster_path,original_language,vote_average} = e;
+    
+            const divTag = document.createElement("div")
+            divTag.setAttribute("class","movie-container")
+    
+            let imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`
+            let lang = original_language.toUpperCase()
+    
+            divTag.innerHTML = `<img src=${imgUrl} alt=${title}/>
+                                <h3 class="movie-name">${title}</h3>
+                                <div class="info">
+                                <p class="movie-lang">${lang}</p>
+                                <p class="movie-rating">${vote_average}</p>
+                                </div>`
+            
+            mvCard.appendChild(divTag);
+        })
+    }else{
 
-        const divTag = document.createElement("div")
-        divTag.setAttribute("class","movie-container")
+        mvCard.innerHTML = `
+        <div class="empty-gendre">No match found ☹️
+        <div>Please check with other genre's from the list !</div>
+        </div>
+        `
 
-        let imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`
-        let lang = original_language.toUpperCase()
+    }
+    
 
-        divTag.innerHTML = `<img src=${imgUrl} alt=${title}/>
-                            <h3 class="movie-name">${title}</h3>
-                            <div class="info">
-                            <p class="movie-lang">${lang}</p>
-                            <p class="movie-rating">${vote_average}</p>
-                            </div>`
-        
-        mvCard.appendChild(divTag);
-    })
+    
 
 }
 
@@ -136,7 +152,6 @@ function displayModal(){
         mvContainer[i].addEventListener("click",()=>{
 
             const {title,poster_path,original_language,vote_average,overview} = obj[i];
-            
             localStorage.setItem("mvTitle",title)
 
             let posterUrl = `https://image.tmdb.org/t/p/original${poster_path}`
