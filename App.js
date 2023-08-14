@@ -15,7 +15,7 @@ const mvCard = document.querySelector("#card-section")
 let pageNum = 1;
 
 function displayUi(movie){
-   
+    // console.log(movie.length)
     mvCard.innerHTML = "";
 
     if(movie.length > 0){
@@ -28,7 +28,7 @@ function displayUi(movie){
             let imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`
             let lang = original_language.toUpperCase()
     
-            divTag.innerHTML = `<img src=${imgUrl} alt=${title}/>
+            divTag.innerHTML = `<img class="movie-img" src=${imgUrl} alt=${title}/>
                                 <h3 class="movie-name">${title}</h3>
                                 <div class="info">
                                 <p class="movie-lang">${lang}</p>
