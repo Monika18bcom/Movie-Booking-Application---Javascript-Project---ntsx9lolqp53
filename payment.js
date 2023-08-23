@@ -40,9 +40,14 @@ tCount.addEventListener("change", calculateSubTotal);
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
-    alert("Booked Tickets Successfully !")
 
-    window.location.href = `index.html`
+    if(Number(tCount.value)>0){
+        alert("Booked Tickets Successfully !")
+        window.location.href = `index.html`
+    }else{
+        alert("Mention the number of tickets to be booked !")
+    }
+   
 })
 
 
