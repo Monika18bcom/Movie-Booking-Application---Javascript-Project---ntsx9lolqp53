@@ -10,7 +10,6 @@ let mvContainer = document.querySelectorAll(".movie-container");
 
 const mvCard = document.querySelector("#card-section")
 
-// const nowPlaying = document.querySelector("#now-playing")
 
 let pageNum = 1;
 
@@ -73,6 +72,9 @@ async function fetchData(){
 }
 
 fetchData()
+
+document.querySelector(".title").addEventListener("click", fetchData)
+
 
 
 async function fetchGendre(){
